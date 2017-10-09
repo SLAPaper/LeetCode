@@ -5,19 +5,13 @@ class Solution(object):
         :rtype: int
         """
         max_len = 0
-        subs = ""
+        d = {}  # type: typing.Dict[str, int]
 
-        for c in s:
-            try:
-                i = subs.find(c)
-            except ValueError:
-                pass
-            else:
-                subs = subs[i + 1:] if i < len(subs) else ""
-            finally:
-                subs = subs + c
-
-            l = len(subs)
-            max_len = l if l > max_len else max_len
+        pi = -1
+        for i, c in enumerate(s):
+            if c in d:
+                pi = max((d[c], pi))
+            max_len = max((max_len, i - pi))
+            d[c] = i
 
         return max_len

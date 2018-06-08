@@ -8,4 +8,4 @@ class Solution:
         return all(s.count(l) == t.count(l) for l in "abcdefghijklmnopqrstuvwxyz")
 
         # generic solution:
-        return all(s.count(l) == t.count(l) for l in set(s) | set(t))
+        # return all(s.count(l) == t.count(l) for l in set(s) | set(t))

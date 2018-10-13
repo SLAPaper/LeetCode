@@ -7,8 +7,16 @@ class ListNode:
 
 class Solution:
     def isPalindrome(self, head):
-        """.
-
+        # type: (ListNode) -> bool
+        """
         :type head: ListNode
         :rtype: bool
         """
+
+        lst = []  # type: list
+        p = head
+        while p is not None:
+            lst.append(p.val)
+            p = p.next
+
+        return lst == lst[::-1]
